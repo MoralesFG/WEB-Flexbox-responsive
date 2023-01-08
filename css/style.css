@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0;
+}
+
+a {text-decoration: none;}
+
+img {max-width: 100%; display: block;} /* añadimos display block para que entre la imagen y la caja no quede un fino borde blanco debajo, es un ajuste muy concreto para este tipo de casos */
+
+body {
+    background-color: #dadada;
+    font-family: 'Roboto';
+    /*para que nuestro footer quede bien pegado abajo metemos en body los siguientes tres ajustes*/
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.cabecera {
+    background-color: black;
+    height: 60px;
+    padding: 15px;
+    margin-bottom: 30px;
+    display: flex; /*lo ponemos aquí porque es padre*/
+    justify-content: space-between; /*ideal cabecera*/
+    align-items: center; /*para que logo no estire*/
+}
+
+.cabecera__logo {
+    font-weight: 900;
+    text-transform: uppercase;
+    color: white;
+    font-size: 26px;
+}
+
+.cabecera__menu {
+    display: flex;/*para que los li se pongan seguido*/
+}
+
+.cabecera__item {
+    margin-left: 15px;/*margen derecha a izquierda*/
+    font-size: 20px;
+}
+
+.cabecera__link {
+    color: white;
+}
+
+.contenido {
+    max-width: 1200px; /*para que cuando llegue a esta medida ya quede centrado y no siga expandiendo*/
+    margin: auto;
+    padding: 15px;
+}
+
+.noticias__articulo img {
+    object-fit: cover;
+    width: 100%;
+    /*para que todas las imagenes siempre queden al borde de nuestro cuadro blanco, sea cual sea la medida se va a adaptar*/
+}
+
+.contenido__titulo {
+    font-size: 40px;
+    line-height: 40px; /* interlineado */
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.noticias__articulo {
+    margin-bottom: 30px;
+    background-color: white;
+    display: flex;
+}
+
+.noticias__articulo > * {
+    flex: 0 50%;
+}
+
+.noticias__titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////MEDIA //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* TABLET */
+
+@media (min-width:768px) {
+    
+    .noticias {
+        display: flex;
+        flex-wrap: wrap; /* para que cuando no quepan se pongan una debajo de la otra y no a lo largo */
+        justify-content: space-between;
+    }
+
+
+    .noticias__articulo {
+        flex: 0 48%; /* si ponemos 50% chocan */
+        display: block;
+    }
+
+    .noticias__titulo {
+        padding: 15px;
+    }
+}
+
+/* ESCRITORIO */
+
+@media (min-width:1200px) {
+/*este ajuste dice que a partir de x medida hace otra función, como por ejemplo al pasar de movil a tablet queremos un nuevo background, pues cuando pase la medida cambiará*/
+
+    .noticias__articulo {
+            flex: 0 32%;
+        }
+    }
